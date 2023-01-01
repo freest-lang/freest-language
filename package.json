@@ -4,11 +4,21 @@
     "description": "FreeST syntax support for the FreeST programming language",
     "version": "1.0.0",
     "icon": "resources/FreeST.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/freest-lang/freest-language"
+    },
     "engines": {
         "vscode": "^1.65.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Language Packs"
+    ],
+    "keywords": [
+        "freest",
+        "syntax highlighting",
+        "fst"
     ],
     "contributes": {
         "languages": [
@@ -37,6 +47,6 @@
         "js-yaml": "^4.1.0"
     },
     "scripts": {
-		"vscode:prepublish": "npm install && npx js-yaml syntaxes/freest.tmLanguage.yaml > syntaxes/freest.tmLanguage.json"
-	}
+        "vscode:prepublish": "npm install && npx js-yaml syntaxes/freest.tmLanguage.yaml > syntaxes/freest.tmLanguage.json"
+    }
 }
