@@ -3,6 +3,7 @@
     "displayName": "FreeST Syntax Highlighting",
     "description": "FreeST syntax support for the FreeST programming language",
     "version": "1.0.0",
+    "publisher": "diogofpbarros",
     "icon": "resources/FreeST.png",
     "repository": {
         "type": "git",
