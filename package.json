@@ -1,0 +1,42 @@
+{
+    "name": "freest-language",
+    "displayName": "FreeST Syntax Highlighting",
+    "description": "FreeST syntax support for the FreeST programming language",
+    "version": "1.0.0",
+    "icon": "resources/FreeST.png",
+    "engines": {
+        "vscode": "^1.65.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "FreeST",
+                "aliases": [
+                    "FreeST",
+                    "freest"
+                ],
+                "extensions": [
+                    ".fst",
+                    ".freest"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "FreeST",
+                "scopeName": "source.fst",
+                "path": "./syntaxes/freest.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "js-yaml": "^4.1.0"
+    },
+    "scripts": {
+		"vscode:prepublish": "npm install && npx js-yaml syntaxes/freest.tmLanguage.yaml > syntaxes/freest.tmLanguage.json"
+	}
+}

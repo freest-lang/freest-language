@@ -1,0 +1,154 @@
+{
+  "schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.fst",
+  "name": "FreeST",
+  "fileTypes": "fst freest",
+  "patterns": [
+    {
+      "include": "#Comment"
+    },
+    {
+      "include": "#Type"
+    },
+    {
+      "include": "#Keyword"
+    },
+    {
+      "include": "#Literal"
+    },
+    {
+      "match": "(^[a-z][a-zA-Z0-9_.-\\\\']*)\\s*:",
+      "captures": {
+        "1": {
+          "name": "entity.name.function.freest"
+        }
+      }
+    }
+  ],
+  "repository": {
+    "Comment": {
+      "patterns": [
+        {
+          "include": "#BlockComment"
+        },
+        {
+          "include": "#LineComment"
+        }
+      ]
+    },
+    "BlockComment": {
+      "patterns": [
+        {
+          "comment": "Block comment",
+          "name": "comment.block.double-dash.freest",
+          "contentName": "comment.block.freest",
+          "begin": "\\{-",
+          "end": "-\\}",
+          "patterns": [
+            {
+              "include": "#Comment"
+            }
+          ]
+        }
+      ]
+    },
+    "LineComment": {
+      "patterns": [
+        {
+          "comment": "Line comments",
+          "name": "comment.line.double-dash.freest",
+          "match": "--.*"
+        }
+      ]
+    },
+    "Type": {
+      "patterns": [
+        {
+          "include": "#BasicType"
+        },
+        {
+          "include": "#SessionType"
+        }
+      ]
+    },
+    "BasicType": {
+      "patterns": [
+        {
+          "name": "entity.name.type.freest",
+          "match": "\\b(Int|Char|Bool|String)\\b"
+        }
+      ]
+    },
+    "SessionType": {
+      "patterns": [
+        {
+          "name": "entity.name.type.session.freest",
+          "match": "\\b(!|\\?|\\+|&|dualof|MU|ML|TU|TL|SU|SL|Skip)\\b"
+        }
+      ]
+    },
+    "Keyword": {
+      "patterns": [
+        {
+          "include": "#ControlKeyword"
+        },
+        {
+          "include": "#SessionKeyword"
+        },
+        {
+          "include": "#TypeKeyword"
+        }
+      ]
+    },
+    "ControlKeyword": {
+      "patterns": [
+        {
+          "name": "keyword.control.freest",
+          "match": "\\b(if|then|else|case|of|match|with|let|in)\\b"
+        }
+      ]
+    },
+    "SessionKeyword": {
+      "patterns": [
+        {
+          "name": "keyword.other.session.freest",
+          "match": "\\b(new|send|receive|select|fork)\\b"
+        }
+      ]
+    },
+    "TypeKeyword": {
+      "patterns": [
+        {
+          "name": "keyword.other.type.freest",
+          "match": "\\b(forall|rec|type|data)\\b"
+        }
+      ]
+    },
+    "Literal": {
+      "patterns": [
+        {
+          "include": "#String"
+        },
+        {
+          "include": "#Constructor"
+        }
+      ]
+    },
+    "String": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.freest",
+          "match": "\\\".*?\\\""
+        }
+      ]
+    },
+    "Constructor": {
+      "patterns": [
+        {
+          "name": "entity.name.tag.freest",
+          "match": "\\b[A-Z][a-zA-Z0-9_.-]*\\b"
+        }
+      ]
+    }
+  }
+}
