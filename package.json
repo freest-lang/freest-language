@@ -1,16 +1,15 @@
 {
     "name": "freest-language",
+    "version": "1.0.0",
     "displayName": "FreeST Syntax Highlighting",
     "description": "FreeST syntax support for the FreeST programming language",
-    "version": "1.0.0",
-    "publisher": "diogofpbarros",
     "icon": "resources/FreeST.png",
+    "publisher": "diogofpbarros",
+    "author": "Diogo Barros",
+    "license": "BSD",
     "repository": {
         "type": "git",
         "url": "https://github.com/freest-lang/freest-language"
-    },
-    "engines": {
-        "vscode": "^1.65.0"
     },
     "categories": [
         "Programming Languages",
@@ -21,6 +20,15 @@
         "syntax highlighting",
         "fst"
     ],
+    "engines": {
+        "vscode": "^1.65.0"
+    },
+    "devDependencies": {
+        "js-yaml": "^4.1.0"
+    },
+    "scripts": {
+        "vscode:prepublish": "npm install && npx js-yaml syntaxes/freest.tmLanguage.yaml > syntaxes/freest.tmLanguage.json"
+    },
     "contributes": {
         "languages": [
             {
@@ -43,11 +51,5 @@
                 "path": "./syntaxes/freest.tmLanguage.json"
             }
         ]
-    },
-    "devDependencies": {
-        "js-yaml": "^4.1.0"
-    },
-    "scripts": {
-        "vscode:prepublish": "npm install && npx js-yaml syntaxes/freest.tmLanguage.yaml > syntaxes/freest.tmLanguage.json"
     }
 }

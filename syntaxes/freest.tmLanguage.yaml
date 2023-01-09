@@ -40,14 +40,24 @@ repository:
         begin: \{-
         end: -\}
         patterns:
+          - include: '#ToDo'
           - include: '#Comment'
   
   LineComment:
     patterns: 
       - comment: Line comments
         name: comment.line.double-dash.freest
-        match: --.*
+        match: --(.*)
+        captures:
+          1:
+            patterns:
+              - include: '#ToDo'
 	
+  ToDo:
+    patterns:
+      - name: keyword.todo
+        match: \bTODO\b
+
   ######################################################
   ######################## TYPE ########################
   ######################################################
@@ -56,6 +66,7 @@ repository:
     patterns:
       - include: '#BasicType'
       - include: '#SessionType'
+      - include: '#TypeOperators'
 
   BasicType:
     patterns:
@@ -65,7 +76,15 @@ repository:
   SessionType:
     patterns:
       - name: entity.name.type.session.freest
-        match: \b(!|\?|\+|&|dualof|MU|ML|TU|TL|SU|SL|Skip)\b
+        match: (\b(Skip|End)\b|(1T|\*T|1S|\*S)) # HACK
+        # match: \b(1T|\*T|1S|\*S|Skip|End)\b
+        # match: \b(!|\?|\+|&|dualof|1T|\\*T|1S|\\*S|Skip)\b
+
+  TypeOperators:
+    patterns:
+      - name: entity.name.type.typeops.freest
+        match: (\b(dualof)\b|(\@))
+        # match: \b(dualof|\\\\@)\b
 
   ######################################################
   ####################### KEYWORD ######################
@@ -91,7 +110,7 @@ repository:
   SessionKeyword:
     patterns:
       - name: keyword.other.session.freest
-        match: \b(new|send|receive|select|fork)\b
+        match: \b(new|send|receive|select|fork|close)\b
 
   TypeKeyword:
     patterns:
@@ -105,6 +124,7 @@ repository:
   Literal:
     patterns:
       - include: '#String'
+      - include: '#Character'
       - include: '#Constructor'
 
   String:
@@ -112,6 +132,11 @@ repository:
       - name: string.quoted.double.freest
         match: \".*?\"
   
+  Character:
+      patterns:
+        - name: string.quoted.single.freest
+          match: \'.*?\'
+
   Constructor:
     patterns:
       - name: entity.name.tag.freest

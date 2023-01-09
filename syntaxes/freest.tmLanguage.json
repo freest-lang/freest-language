@@ -46,6 +46,9 @@
           "end": "-\\}",
           "patterns": [
             {
+              "include": "#ToDo"
+            },
+            {
               "include": "#Comment"
             }
           ]
@@ -57,7 +60,24 @@
         {
           "comment": "Line comments",
           "name": "comment.line.double-dash.freest",
-          "match": "--.*"
+          "match": "--(.*)",
+          "captures": {
+            "1": {
+              "patterns": [
+                {
+                  "include": "#ToDo"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "ToDo": {
+      "patterns": [
+        {
+          "name": "keyword.todo",
+          "match": "\\bTODO\\b"
         }
       ]
     },
@@ -68,6 +88,9 @@
         },
         {
           "include": "#SessionType"
+        },
+        {
+          "include": "#TypeOperators"
         }
       ]
     },
@@ -83,7 +106,15 @@
       "patterns": [
         {
           "name": "entity.name.type.session.freest",
-          "match": "\\b(!|\\?|\\+|&|dualof|MU|ML|TU|TL|SU|SL|Skip)\\b"
+          "match": "(\\b(Skip|End)\\b|(1T|\\*T|1S|\\*S))"
+        }
+      ]
+    },
+    "TypeOperators": {
+      "patterns": [
+        {
+          "name": "entity.name.type.typeops.freest",
+          "match": "(\\b(dualof)\\b|(\\@))"
         }
       ]
     },
@@ -112,7 +143,7 @@
       "patterns": [
         {
           "name": "keyword.other.session.freest",
-          "match": "\\b(new|send|receive|select|fork)\\b"
+          "match": "\\b(new|send|receive|select|fork|close)\\b"
         }
       ]
     },
@@ -130,6 +161,9 @@
           "include": "#String"
         },
         {
+          "include": "#Character"
+        },
+        {
           "include": "#Constructor"
         }
       ]
@@ -139,6 +173,14 @@
         {
           "name": "string.quoted.double.freest",
           "match": "\\\".*?\\\""
+        }
+      ]
+    },
+    "Character": {
+      "patterns": [
+        {
+          "name": "string.quoted.single.freest",
+          "match": "\\'.*?\\'"
         }
       ]
     },
