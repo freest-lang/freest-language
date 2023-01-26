@@ -121,6 +121,9 @@
     "Keyword": {
       "patterns": [
         {
+          "include": "#ModuleKeyword"
+        },
+        {
           "include": "#ControlKeyword"
         },
         {
@@ -128,6 +131,35 @@
         },
         {
           "include": "#TypeKeyword"
+        }
+      ]
+    },
+    "ModuleKeyword": {
+      "patterns": [
+        {
+          "match": "^(module)\\s+(.*)\\s+(where)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.module.freest"
+            },
+            "2": {
+              "name": "variable.other.module.freest"
+            },
+            "3": {
+              "name": "keyword.control.module.freest"
+            }
+          }
+        },
+        {
+          "match": "^(import)\\s+(.*)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.import.freest"
+            },
+            "2": {
+              "name": "variable.other.import.freest"
+            }
+          }
         }
       ]
     },
