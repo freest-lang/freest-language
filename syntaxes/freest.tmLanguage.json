@@ -204,7 +204,7 @@
       "patterns": [
         {
           "name": "string.quoted.double.freest",
-          "match": "\\\".*?\\\""
+          "match": "[$\\s]\\\".*?\\\""
         }
       ]
     },
@@ -212,7 +212,7 @@
       "patterns": [
         {
           "name": "string.quoted.single.freest",
-          "match": "\\'.*?\\'"
+          "match": "[$\\s]\\'.*?\\'"
         }
       ]
     },
