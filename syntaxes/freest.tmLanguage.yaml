@@ -41,7 +41,6 @@ repository:
         end: -\}
         patterns:
           - include: '#ToDo'
-          - include: '#Comment'
   
   LineComment:
     patterns: 

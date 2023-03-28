@@ -47,9 +47,6 @@
           "patterns": [
             {
               "include": "#ToDo"
-            },
-            {
-              "include": "#Comment"
             }
           ]
         }
