@@ -1,6 +1,6 @@
 {
     "name": "freest-language",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "displayName": "FreeST Syntax Highlighting",
     "description": "FreeST syntax support for the FreeST programming language",
     "icon": "resources/FreeST.png",
