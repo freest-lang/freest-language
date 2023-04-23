@@ -41,7 +41,6 @@ repository:
         end: -\}
         patterns:
           - include: '#ToDo'
-          - include: '#Comment'
   
   LineComment:
     patterns: 
@@ -149,12 +148,12 @@ repository:
   String:
     patterns:
       - name: string.quoted.double.freest
-        match: [$\s]\".*?\"
+        match: '[$\\s]\\".*?\\"'
   
   Character:
       patterns:
         - name: string.quoted.single.freest
-          match: [$\s]\'.*?\'
+          match: "[$\\s]\\'.*?\\'"
 
   Constructor:
     patterns:

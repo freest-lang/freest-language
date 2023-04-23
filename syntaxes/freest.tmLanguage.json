@@ -47,9 +47,6 @@
           "patterns": [
             {
               "include": "#ToDo"
-            },
-            {
-              "include": "#Comment"
             }
           ]
         }
@@ -204,7 +201,7 @@
       "patterns": [
         {
           "name": "string.quoted.double.freest",
-          "match": "[$\\s]\\\".*?\\\""
+          "match": "[$\\\\s]\\\\\".*?\\\\\""
         }
       ]
     },
